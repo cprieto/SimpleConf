@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace configurator.autofac.tests
@@ -32,7 +33,7 @@ namespace configurator.autofac.tests
             var values = _provider.GetValues();
             var notFound = Guid.NewGuid().ToString("N");
 
-            Assert.Null(values[notFound]);
+            Assert.Throws<KeyNotFoundException>(() => values[notFound]);
         }
 
         public void Dispose()
