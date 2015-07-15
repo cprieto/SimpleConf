@@ -25,3 +25,7 @@ configuration: Release
 
 before_build:
   - nuget restore
+
+artifacts:
+  - path: '**\*.nupkg'
+  - name: nuget
