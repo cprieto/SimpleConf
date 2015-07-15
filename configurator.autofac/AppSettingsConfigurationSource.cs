@@ -4,7 +4,7 @@ using System.Configuration;
 
 namespace configurator.autofac
 {
-    public class AppSettingsConfigurationSourceProvider : IConfigurationSourceProvider
+    public class AppSettingsConfigurationSource : IConfigurationSource
     {
         public IDictionary<string, string> GetValues()
         {

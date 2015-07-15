@@ -8,11 +8,11 @@ namespace configurator.autofac.tests
     public class AppSettingsConfigurationSourceProviderFacts
     {
         private const string Key = "test:stuff";
-        private readonly AppSettingsConfigurationSourceProvider _provider;
+        private readonly AppSettingsConfigurationSource _provider;
 
         public AppSettingsConfigurationSourceProviderFacts()
         {
-            _provider = new AppSettingsConfigurationSourceProvider();
+            _provider = new AppSettingsConfigurationSource();
         }
 
         [Fact]

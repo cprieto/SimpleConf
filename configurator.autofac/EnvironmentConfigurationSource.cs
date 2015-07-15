@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace configurator.autofac
 {
-    public class EnvironmentConfigurationSourceProvider : IConfigurationSourceProvider
+    public class EnvironmentConfigurationSource : IConfigurationSource
     {
         private readonly Lazy<IDictionary> _environment = 
             new Lazy<IDictionary>(Environment.GetEnvironmentVariables);

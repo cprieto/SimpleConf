@@ -2,7 +2,7 @@
 
 namespace configurator.autofac
 {
-    public interface IConfigurationSourceProvider
+    public interface IConfigurationSource
     {
         IDictionary<string, string> GetValues();
     }

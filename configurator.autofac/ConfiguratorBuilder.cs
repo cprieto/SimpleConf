@@ -9,15 +9,15 @@ namespace configurator.autofac
 
         public ConfiguratorBuilder FromEnvironment()
         {
-            return FromSource(new EnvironmentConfigurationSourceProvider());
+            return FromSource(new EnvironmentConfigurationSource());
         }
 
         public ConfiguratorBuilder FromAppSettings()
         {
-            return FromSource(new AppSettingsConfigurationSourceProvider());
+            return FromSource(new AppSettingsConfigurationSource());
         }
 
-        public ConfiguratorBuilder FromSource<TSource>() where TSource : IConfigurationSourceProvider, new()
+        public ConfiguratorBuilder FromSource<TSource>() where TSource : IConfigurationSource, new()
         {
             var source = Activator.CreateInstance<TSource>();
             _sources.Add(source.GetValues());
@@ -25,7 +25,7 @@ namespace configurator.autofac
             return this;
         }
 
-        public ConfiguratorBuilder FromSource<TSource>(TSource source) where TSource : IConfigurationSourceProvider
+        public ConfiguratorBuilder FromSource<TSource>(TSource source) where TSource : IConfigurationSource
         {
             if (source == null)
                 throw new ArgumentNullException();

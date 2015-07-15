@@ -8,7 +8,7 @@ namespace configurator.autofac.tests
     {
         private readonly string _value;
         private readonly string _key;
-        private readonly EnvironmentConfigurationSourceProvider _provider = new EnvironmentConfigurationSourceProvider();
+        private readonly EnvironmentConfigurationSource _provider = new EnvironmentConfigurationSource();
 
         public EnvironmentConfigurationSourceProviderFacts()
         {
