@@ -1,3 +1,4 @@
+# We are using now semantic versioning
 environment:
   core_version: 1.0.0
 
@@ -7,6 +8,7 @@ branches:
   only:
     - master
 
+# This will speed up nuget package restore
 cache:
   - packages -> **\packages.config
 
