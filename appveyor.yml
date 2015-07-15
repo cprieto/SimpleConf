@@ -1,4 +1,7 @@
-version: 1.0.{build}
+environment:
+  core_version: 1.0.0
+
+version: "$(core_version)+{branch}+{build}"
 
 branches:
   only:
@@ -17,8 +20,8 @@ init:
 assembly_info:
   patch: true
   file: AssemblyInfo.*
-  assembly_version: "{version}"
-  assembly_file_version: "{version}"
+  assembly_version: "$(core_version)"
+  assembly_file_version: "$(core_version)"
   assembly_informational_version: "{version}"
 
 configuration: Release
