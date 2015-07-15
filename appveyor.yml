@@ -4,6 +4,9 @@ branches:
   only:
     - master
 
+cache:
+  - packages -> **\packages.config
+
 skip_tags: true
 
 os: Windows Server 2012
