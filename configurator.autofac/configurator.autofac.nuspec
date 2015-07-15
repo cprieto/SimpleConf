@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
-<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
     <id>configurator.autofac</id>
     <version>$version$</version>
     <authors>Cristian Prieto</authors>
@@ -9,8 +9,10 @@
     <description>An easy way to generate configuration classes from interfaces and support different sources</description>
     <projectUrl>https://github.com/cprieto/configurator</projectUrl>
     <tags>configuration dynamicproxy autofac</tags>
+    <dependencies>
+      <group>
+        <dependency id="Castle.Core" version="3.3" />
+      </group>
+    </dependencies>
   </metadata>
-  <files>
-    <file src="bin\Release\configurator.autofac.dll" target="lib\net45" />
-  </files>
 </package>
