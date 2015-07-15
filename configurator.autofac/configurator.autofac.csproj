@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AppSettingsConfigurationSourceProvider.cs" />
     <Compile Include="CascadingMultipleDictionaryAdapter.cs" />
+    <Compile Include="ConfiguratorBuilder.cs" />
     <Compile Include="EnvironmentConfigurationSourceProvider.cs" />
     <Compile Include="IConfigurationSourceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
