@@ -23,10 +23,13 @@ assembly_info:
 
 configuration: Release
 
+artifacts:
+  - path: '**\configurator.autofac.nupkg'
+
 before_build:
   - nuget restore
 
-artifacts:
-  - path: '**\*.nupkg'
+build:
+  project: configurator.sln
 
 

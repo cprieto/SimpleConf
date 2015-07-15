@@ -10,4 +10,7 @@
     <projectUrl>https://github.com/cprieto/configurator</projectUrl>
     <tags>configuration dynamicproxy autofac</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\configurator.autofac.dll" target="lib\net45" />
+  </files>
 </package>
