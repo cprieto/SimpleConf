@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9159179A-9AC1-42AE-BD9E-470A9EA27C18}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
-		configurator.autofac\Package.nuspec = configurator.autofac\Package.nuspec
+		configurator.autofac\configurator.autofac.nuspec = configurator.autofac\configurator.autofac.nuspec
 	EndProjectSection
 EndProject
 Global
