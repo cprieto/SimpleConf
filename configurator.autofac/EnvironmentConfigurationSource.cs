@@ -13,8 +13,9 @@ namespace configurator.autofac
         public IDictionary<string, string> GetValues()
         {
             var dict = _environment.Value;
-            return dict.Keys.Cast<string>()
+            var env = dict.Keys.Cast<string>()
                 .ToDictionary(key => key, key => dict[key] as string);
+            return new Dictionary<string, string>(env, StringComparer.OrdinalIgnoreCase);
         }
     }
 }
