@@ -38,4 +38,4 @@ var configuration =
 
 Now you can set the value in your AppSettings section in your configuration file or setting the value in your environment variables.
 
-Heavily inspired in [this blog post](http://kozmic.net/2014/03/22/strongly-typed-app-settings-with-castle-dictionaryadapter/) from [Krzysztof Koźmic](https://twitter.com/kkozmic).
+Heavily inspired by [this blog post](http://kozmic.net/2014/03/22/strongly-typed-app-settings-with-castle-dictionaryadapter/) from [Krzysztof Koźmic](https://twitter.com/kkozmic).
