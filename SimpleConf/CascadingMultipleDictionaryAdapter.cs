@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Castle.Components.DictionaryAdapter;
 
-namespace configurator.autofac
+namespace SimpleConf
 {
     public class CascadingMultipleDictionaryAdapter : AbstractDictionaryAdapter
     {

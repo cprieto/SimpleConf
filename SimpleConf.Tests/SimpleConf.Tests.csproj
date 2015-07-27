@@ -8,8 +8,8 @@
     <ProjectGuid>{6318E2B6-E08E-488A-ACF6-5F1C85E4F66D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>configurator.autofac.tests</RootNamespace>
-    <AssemblyName>configurator.autofac.tests</AssemblyName>
+    <RootNamespace>SimpleConf.Tests</RootNamespace>
+    <AssemblyName>SimpleConf.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>211d3c7f</NuGetPackageImportStamp>

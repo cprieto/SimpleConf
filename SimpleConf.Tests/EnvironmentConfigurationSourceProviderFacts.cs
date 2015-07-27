@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace configurator.autofac.tests
+namespace SimpleConf.Tests
 {
     public class EnvironmentConfigurationSourceProviderFacts : IDisposable
     {

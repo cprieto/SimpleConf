@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace configurator.autofac
+namespace SimpleConf
 {
     public interface IConfigurationSource
     {

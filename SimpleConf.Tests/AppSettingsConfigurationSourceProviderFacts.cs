@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using Xunit;
 
-namespace configurator.autofac.tests
+namespace SimpleConf.Tests
 {
     public class AppSettingsConfigurationSourceProviderFacts
     {

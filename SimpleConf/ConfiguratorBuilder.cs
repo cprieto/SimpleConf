@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Castle.Components.DictionaryAdapter;
 
-namespace configurator.autofac
+namespace SimpleConf
 {
     public sealed class ConfiguratorBuilder<T> where T : class
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace configurator.autofac.tests
+namespace SimpleConf.Tests
 {
     public interface ISimpleConfiguration
     {

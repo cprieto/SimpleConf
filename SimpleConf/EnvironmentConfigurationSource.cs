@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace configurator.autofac
+namespace SimpleConf
 {
     public class EnvironmentConfigurationSource : IConfigurationSource
     {

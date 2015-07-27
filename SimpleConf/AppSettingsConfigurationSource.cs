@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 
-namespace configurator.autofac
+namespace SimpleConf
 {
     public class AppSettingsConfigurationSource : IConfigurationSource
     {
