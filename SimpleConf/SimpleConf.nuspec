@@ -5,6 +5,7 @@
     <version>$version$</version>
     <authors>Cristian Prieto</authors>
     <owners>Cristian Prieto</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An easy way to generate configuration classes from interfaces and support different sources</description>
     <projectUrl>https://github.com/cprieto/configurator</projectUrl>
