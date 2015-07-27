@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9159179A-9AC1-42AE-BD9E-470A9EA27C18}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
-		configurator.autofac\configurator.nuspec = configurator.autofac\configurator.nuspec
+		SimpleConf\SimpleConf.nuspec = SimpleConf\SimpleConf.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConf", "SimpleConf\SimpleConf.csproj", "{A85A13E8-FC15-4204-9547-AA6103C9CFFE}"
