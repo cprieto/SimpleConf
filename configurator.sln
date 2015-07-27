@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "configurator.autofac", "configurator.autofac\configurator.autofac.csproj", "{A85A13E8-FC15-4204-9547-AA6103C9CFFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "configurator", "configurator.autofac\configurator.csproj", "{A85A13E8-FC15-4204-9547-AA6103C9CFFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "configurator.autofac.tests", "configurator.autofac.tests\configurator.autofac.tests.csproj", "{6318E2B6-E08E-488A-ACF6-5F1C85E4F66D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9159179A-9AC1-42AE-BD9E-470A9EA27C18}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
-		configurator.autofac\configurator.autofac.nuspec = configurator.autofac\configurator.autofac.nuspec
+		configurator.autofac\configurator.nuspec = configurator.autofac\configurator.nuspec
 	EndProjectSection
 EndProject
 Global

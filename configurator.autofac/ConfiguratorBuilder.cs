@@ -52,9 +52,21 @@ namespace configurator.autofac
             var meta = factory.GetAdapterMeta(typeof (T));
             var propertyDescriptor = new PropertyDescriptor();
 
+            AddKeyPrefix(propertyDescriptor);
+
             var adapter = new CascadingMultipleDictionaryAdapter(_sources);
             var config = meta.CreateInstance(adapter, propertyDescriptor) as T;
             return config;
+        }
+
+        private void AddKeyPrefix(PropertyDescriptor descriptor)
+        {
+            if (string.IsNullOrWhiteSpace(_prefix))
+                return;
+
+            var prefix = string.Format("{0}{1}", _prefix, _separator);
+            var behavior = new KeyPrefixAttribute(prefix);
+            descriptor.AddBehavior(behavior);
         }
     }
 }

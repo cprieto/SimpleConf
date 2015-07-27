@@ -68,9 +68,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\configurator.autofac\configurator.autofac.csproj">
+    <ProjectReference Include="..\configurator.autofac\configurator.csproj">
       <Project>{a85a13e8-fc15-4204-9547-aa6103c9cffe}</Project>
-      <Name>configurator.autofac</Name>
+      <Name>configurator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

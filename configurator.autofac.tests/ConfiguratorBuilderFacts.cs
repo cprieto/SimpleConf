@@ -10,7 +10,8 @@ namespace configurator.autofac.tests
 
     public class ConfiguratorBuilderFacts : IDisposable
     {
-        public const string Key = "name";
+        public const string Key = "sample:name";
+
         public readonly string Value = Guid.NewGuid().ToString("N");
 
         public ConfiguratorBuilderFacts()
@@ -23,7 +24,9 @@ namespace configurator.autofac.tests
         {
             var builder = new ConfiguratorBuilder<ISimpleConfiguration>();
             var configuration = builder
-                .FromEnvironment().Build();
+                .WithKeyPrefix("sample")
+                .FromEnvironment()
+                .Build();
 
             Assert.NotNull(configuration);
             Assert.Equal(Value, configuration.Name);
