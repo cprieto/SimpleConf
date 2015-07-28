@@ -51,8 +51,13 @@ namespace SimpleConf
             var factory = new DictionaryAdapterFactory();
             var meta = factory.GetAdapterMeta(typeof (T));
             var propertyDescriptor = new PropertyDescriptor();
-
             AddKeyPrefix(propertyDescriptor);
+            propertyDescriptor.AddBehavior(new KeyMustExistBehaviour());
+
+            foreach (var prop in meta.Properties)
+            {
+                prop.Value.Fetch = true;
+            }
 
             var adapter = new CascadingMultipleDictionaryAdapter(_sources);
             var config = meta.CreateInstance(adapter, propertyDescriptor) as T;
@@ -61,11 +66,11 @@ namespace SimpleConf
 
         private void AddKeyPrefix(PropertyDescriptor descriptor)
         {
-            if (string.IsNullOrWhiteSpace(_prefix))
-                return;
+            var prefix = string.IsNullOrWhiteSpace(_prefix) ? string.Empty 
+                : string.Format("{0}{1}", _prefix, _separator);
 
-            var prefix = string.Format("{0}{1}", _prefix, _separator);
             var behavior = new KeyPrefixAttribute(prefix);
+            
             descriptor.AddBehavior(behavior);
         }
     }

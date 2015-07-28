@@ -1,40 +1,60 @@
 ﻿using System;
+using System.Configuration;
 using Xunit;
 
 namespace SimpleConf.Tests
 {
-    public interface ISimpleConfiguration
+    public class NonPrefixedFacts
     {
-        string Name { get; }
-    }
-
-    public class ConfiguratorBuilderFacts : IDisposable
-    {
-        public const string Key = "sample:name";
-
-        public readonly string Value = Guid.NewGuid().ToString("N");
-
-        public ConfiguratorBuilderFacts()
+        public interface INonPrefixed
         {
-            Environment.SetEnvironmentVariable(Key, Value);
+            string NonPrefixedValue { get; }
+        }
+
+        private readonly string _value;
+        private readonly ConfiguratorBuilder<INonPrefixed> _builder; 
+
+        public NonPrefixedFacts()
+        {
+            _builder = new ConfiguratorBuilder<INonPrefixed>()
+                .FromAppSettings();
+
+            _value = ConfigurationManager.AppSettings["NonPrefixedValue"];
         }
 
         [Fact]
-        public void ItCorrectlyGeneratesConfiguration()
+        public void ItGetsValue()
         {
-            var builder = new ConfiguratorBuilder<ISimpleConfiguration>();
-            var configuration = builder
-                .WithKeyPrefix("sample")
-                .FromEnvironment()
-                .Build();
+            var proxy = _builder.Build();
+            Assert.NotNull(proxy);
+            Assert.Equal(_value, proxy.NonPrefixedValue);
+        }
+    }
 
-            Assert.NotNull(configuration);
-            Assert.Equal(Value, configuration.Name);
+    public class CaseInsensitiveKeysFacts
+    {
+        public interface INonPrefixed
+        {
+            string CaseInsensitiveValue { get; }
         }
 
-        public void Dispose()
+        private readonly string _value;
+        private readonly ConfiguratorBuilder<INonPrefixed> _builder; 
+
+        public CaseInsensitiveKeysFacts()
         {
-            Environment.SetEnvironmentVariable(Key, null);
+            _builder = new ConfiguratorBuilder<INonPrefixed>()
+                .FromAppSettings();
+
+            _value = ConfigurationManager.AppSettings["caseinsensitivevalue"];
+        }
+
+        [Fact]
+        public void ItGetsValue()
+        {
+            var proxy = _builder.Build();
+            Assert.NotNull(proxy);
+            Assert.Equal(_value, proxy.CaseInsensitiveValue);
         }
     }
 }

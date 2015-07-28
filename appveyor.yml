@@ -1,6 +1,6 @@
 # We are using now semantic versioning
 environment:
-  core_version: 1.0.0
+  core_version: 1.0.1
 
 version: "$(core_version)+{branch}+{build}"
 
