@@ -2,6 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>SimpleConf</id>
+    <description>Simple Configuration</description>
     <version>$version$</version>
     <authors>Cristian Prieto</authors>
     <owners>Cristian Prieto</owners>

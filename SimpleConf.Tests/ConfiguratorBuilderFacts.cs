@@ -202,4 +202,36 @@ namespace SimpleConf.Tests
             Environment.SetEnvironmentVariable("SAMPLE:PREFIXEDVALUE", null);
         }
     }
+
+    public class ConvertTypesFact
+    {
+        public interface IPrefixed
+        {
+            int Port { get; } 
+            Uri Url { get; }
+        }
+
+        private readonly ConfiguratorBuilder<IPrefixed> _builder;
+        private readonly int _port;
+        private readonly Uri _url;
+
+        public ConvertTypesFact()
+        {
+            _builder = new ConfiguratorBuilder<IPrefixed>()
+                .WithKeyPrefix("sample")
+                .FromAppSettings();
+
+            _port = Convert.ToInt32(ConfigurationManager.AppSettings["sample:port"]);
+            _url = new Uri(ConfigurationManager.AppSettings["sample:url"]);
+        }
+
+        [Fact]
+        public void ItConvertsTypesFromSources()
+        {
+            var proxy = _builder.Build();
+            Assert.NotNull(proxy);
+            Assert.Equal(_port, proxy.Port);
+            Assert.Equal(_url, proxy.Url);
+        }
+    }
 }
