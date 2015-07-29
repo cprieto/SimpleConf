@@ -29,7 +29,7 @@ assembly_info:
 configuration: Release
 
 before_build:
-  - ps: $env:opencover=Get-ChildItem -Filter OpenCover.Console.exe -Recurse | Resolve-Path -Relative
+  - ps: $opencover=Get-ChildItem -Filter OpenCover.Console.exe -Recurse | Resolve-Path -Relative; Set-AppveyorBuildVariable -Name opencover -Value $opencover
   - cmd: echo %opencover%
 
 before_test:
