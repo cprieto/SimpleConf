@@ -1,6 +1,6 @@
 # SimpleConf
 ### Configuration made simple!
-[![Build status](https://ci.appveyor.com/api/projects/status/kyov4ki5guvt0qid?svg=true)](https://ci.appveyor.com/project/CristianPrieto/configurator) 
+[![Build status](https://ci.appveyor.com/api/projects/status/kyov4ki5guvt0qid?svg=true)](https://ci.appveyor.com/project/CristianPrieto/configurator) [![Nuget package](https://img.shields.io/nuget/v/SimpleConf.svg)](http://https://www.nuget.org/packages/SimpleConf/)
 
 How many times do you have to write a line of code like this?
 ```csharp
