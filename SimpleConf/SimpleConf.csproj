@@ -49,6 +49,7 @@
     <Compile Include="ConfiguratorBuilder.cs" />
     <Compile Include="EnvironmentConfigurationSource.cs" />
     <Compile Include="IConfigurationSource.cs" />
+    <Compile Include="KeyMustExistBehaviour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace SimpleConf.Tests
 {
     public class AppSettingsConfigurationSourceProviderFacts
     {
-        private const string Key = "test:stuff";
+        private const string Key = "valueinconfigfile";
         private readonly AppSettingsConfigurationSource _provider;
 
         public AppSettingsConfigurationSourceProviderFacts()

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Castle.Components.DictionaryAdapter;
 
 namespace SimpleConf
 {
     public sealed class ConfiguratorBuilder<T> where T : class
     {
-        private readonly IList<IDictionary<string, string>> _sources = new List<IDictionary<string, string>>();
+        //private readonly IList<IDictionary<string, string>> _sources = new List<IDictionary<string, string>>();
+        private readonly IList<IConfigurationSource> _sources = new List<IConfigurationSource>(); 
 
         public ConfiguratorBuilder<T> FromEnvironment()
         {
@@ -21,7 +23,7 @@ namespace SimpleConf
         public ConfiguratorBuilder<T> FromSource<TSource>() where TSource : IConfigurationSource, new()
         {
             var source = Activator.CreateInstance<TSource>();
-            _sources.Add(source.GetValues());
+            _sources.Add(source);
 
             return this;
         }
@@ -38,7 +40,7 @@ namespace SimpleConf
             if (source == null)
                 throw new ArgumentNullException();
 
-            _sources.Add(source.GetValues());
+            _sources.Add(source);
 
             return this;
         }
@@ -51,21 +53,28 @@ namespace SimpleConf
             var factory = new DictionaryAdapterFactory();
             var meta = factory.GetAdapterMeta(typeof (T));
             var propertyDescriptor = new PropertyDescriptor();
-
             AddKeyPrefix(propertyDescriptor);
+            propertyDescriptor.AddBehavior(new KeyMustExistBehaviour());
 
-            var adapter = new CascadingMultipleDictionaryAdapter(_sources);
+            foreach (var prop in meta.Properties)
+            {
+                prop.Value.Fetch = true;
+            }
+
+            var data = _sources.Select(x => x.GetValues());
+
+            var adapter = new CascadingMultipleDictionaryAdapter(data);
             var config = meta.CreateInstance(adapter, propertyDescriptor) as T;
             return config;
         }
 
         private void AddKeyPrefix(PropertyDescriptor descriptor)
         {
-            if (string.IsNullOrWhiteSpace(_prefix))
-                return;
+            var prefix = string.IsNullOrWhiteSpace(_prefix) ? string.Empty 
+                : string.Format("{0}{1}", _prefix, _separator);
 
-            var prefix = string.Format("{0}{1}", _prefix, _separator);
             var behavior = new KeyPrefixAttribute(prefix);
+            
             descriptor.AddBehavior(behavior);
         }
     }

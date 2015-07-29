@@ -2,12 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>SimpleConf</id>
+    <title>Simple Configuration</title>
     <version>$version$</version>
     <authors>Cristian Prieto</authors>
     <owners>Cristian Prieto</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>An easy way to generate configuration classes from interfaces and support different sources</description>
-    <projectUrl>https://github.com/cprieto/configurator</projectUrl>
+    <description>Allow strong type configurations from interfaces and support for multiple sources (environment, appsettings)</description>
+    <projectUrl>https://github.com/cprieto/SimpleConf</projectUrl>
     <tags>configuration dynamicproxy environment</tags>
     <dependencies>
       <group>

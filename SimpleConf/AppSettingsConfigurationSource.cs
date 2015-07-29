@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
@@ -9,8 +10,10 @@ namespace SimpleConf
         public IDictionary<string, string> GetValues()
         {
             var settings = ConfigurationManager.AppSettings;
-            return settings.Keys.Cast<string>()
+            var values = settings.Keys.Cast<string>()
                 .ToDictionary(key => key, key => settings[key]);
+
+            return new Dictionary<string, string>(values, StringComparer.OrdinalIgnoreCase);
         }
     }
 }
