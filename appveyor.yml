@@ -29,7 +29,8 @@ assembly_info:
 configuration: Release
 
 before_build:
-  - ps: nuget restore
+  - ps: $env:opencover=Get-ChildItem -Filter OpenCover.Console.exe -Recurse | Resolve-Path -Relative
+  - cmd: echo %opencover%
 
 before_test:
   - cmd: echo %xunit20%
