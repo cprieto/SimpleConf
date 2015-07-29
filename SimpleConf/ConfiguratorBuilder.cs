@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Castle.Components.DictionaryAdapter;
 
 namespace SimpleConf
 {
     public sealed class ConfiguratorBuilder<T> where T : class
     {
-        private readonly IList<IDictionary<string, string>> _sources = new List<IDictionary<string, string>>();
+        //private readonly IList<IDictionary<string, string>> _sources = new List<IDictionary<string, string>>();
+        private readonly IList<IConfigurationSource> _sources = new List<IConfigurationSource>(); 
 
         public ConfiguratorBuilder<T> FromEnvironment()
         {
@@ -21,7 +23,7 @@ namespace SimpleConf
         public ConfiguratorBuilder<T> FromSource<TSource>() where TSource : IConfigurationSource, new()
         {
             var source = Activator.CreateInstance<TSource>();
-            _sources.Add(source.GetValues());
+            _sources.Add(source);
 
             return this;
         }
@@ -38,7 +40,7 @@ namespace SimpleConf
             if (source == null)
                 throw new ArgumentNullException();
 
-            _sources.Add(source.GetValues());
+            _sources.Add(source);
 
             return this;
         }
@@ -59,7 +61,9 @@ namespace SimpleConf
                 prop.Value.Fetch = true;
             }
 
-            var adapter = new CascadingMultipleDictionaryAdapter(_sources);
+            var data = _sources.Select(x => x.GetValues());
+
+            var adapter = new CascadingMultipleDictionaryAdapter(data);
             var config = meta.CreateInstance(adapter, propertyDescriptor) as T;
             return config;
         }

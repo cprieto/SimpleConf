@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using Castle.Components.DictionaryAdapter;
+using PropertyDescriptor = Castle.Components.DictionaryAdapter.PropertyDescriptor;
 
 namespace SimpleConf
 {
@@ -8,8 +12,16 @@ namespace SimpleConf
         public object GetPropertyValue(IDictionaryAdapter dictionaryAdapter, string key, object storedValue,
             PropertyDescriptor property, bool ifExists)
         {
-            if (storedValue == null && IsRequired(ifExists))
-                throw new Exception();
+            var defaultValue = property.Annotations
+                .OfType<DefaultValueAttribute>()
+                .SingleOrDefault();
+
+            if (storedValue == null && IsRequired(ifExists) && defaultValue == null)
+                throw new KeyNotFoundException("key '" + key + "' not found");
+
+            if (storedValue == null && defaultValue != null)
+                return defaultValue.Value;
+
             return storedValue;
         }
 

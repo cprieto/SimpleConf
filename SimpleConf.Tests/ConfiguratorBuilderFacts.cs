@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using Xunit;
 
@@ -75,7 +77,7 @@ namespace SimpleConf.Tests
         public void ItFails()
         {
             Assert.Null(_value);
-            Assert.Throws<Exception>(() => _builder.Build());
+            Assert.Throws<KeyNotFoundException>(() => _builder.Build());
         }
 
         public interface INonPrefixed
@@ -102,7 +104,7 @@ namespace SimpleConf.Tests
         public void ItFails()
         {
             Assert.Null(_value);
-            Assert.Throws<Exception>(() => _builder.Build());
+            Assert.Throws<KeyNotFoundException>(() => _builder.Build());
         }
 
         public interface INonPrefixed
@@ -232,6 +234,65 @@ namespace SimpleConf.Tests
             Assert.NotNull(proxy);
             Assert.Equal(_port, proxy.Port);
             Assert.Equal(_url, proxy.Url);
+        }
+    }
+
+    public class SourceIsQueryOnBuildFacts : IDisposable
+    {
+        public SourceIsQueryOnBuildFacts()
+        {
+            _builder = new ConfiguratorBuilder<IPrefixed>()
+                .WithKeyPrefix("sample")
+                .FromEnvironment();
+
+            Environment.SetEnvironmentVariable("SAMPLE:PREFIXEDVALUE", "tada!");
+            _value = Environment.GetEnvironmentVariable("SAMPLE:PREFIXEDVALUE");
+        }
+
+        public interface IPrefixed
+        {
+            string PrefixedValue { get; }
+        }
+
+        [Fact]
+        public void ItGetsValueWithoutProblem()
+        {
+            var cfg = _builder.Build();
+            Assert.Equal(_value, cfg.PrefixedValue);
+        }
+
+        public void Dispose()
+        {
+            Environment.SetEnvironmentVariable("SAMPLE:PREFIXEDVALUE", null);
+        }
+
+        private readonly ConfiguratorBuilder<IPrefixed> _builder;
+        private readonly string _value;
+    }
+
+    public class SupportAttributesFacts
+    {
+        public interface IPrefixed
+        {
+            [DefaultValue("hello")]
+            string WithDefaultValue { get; }
+        }
+
+        private readonly ConfiguratorBuilder<IPrefixed> _builder;
+        private readonly string _value = "hello";
+
+        public SupportAttributesFacts()
+        {
+            _builder = new ConfiguratorBuilder<IPrefixed>()
+                .WithKeyPrefix("sample")
+                .FromEnvironment();
+        }
+
+        [Fact]
+        public void ItShouldGetDefaultValue()
+        {
+            var cfg = _builder.Build();
+            Assert.Equal(_value, cfg.WithDefaultValue);
         }
     }
 }
