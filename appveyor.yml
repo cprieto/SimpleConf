@@ -1,6 +1,8 @@
 # We are using now semantic versioning
 environment:
   core_version: 1.0.3
+  COVERALL_TOKEN:
+    secure: fCYgOFdulN+Oy2egpNLEMPLM/CZceyDfIRXkx/IkphthEUHHeBhaK49jFw3Y1AZZ
 
 version: "$(core_version)+{branch}+{build}"
 
