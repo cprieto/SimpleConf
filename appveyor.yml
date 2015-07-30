@@ -28,6 +28,8 @@ assembly_info:
 
 configuration: Release
 
+test: off
+
 test_script:
   - ps: .\runtests.ps1
 
