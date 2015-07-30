@@ -29,7 +29,7 @@ assembly_info:
 configuration: Release
 
 test_script:
-  - ps: runtests.ps1
+  - ps: .\runtests.ps1
 
 before_build:
   - ps: nuget restore
