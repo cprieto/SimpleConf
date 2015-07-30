@@ -28,12 +28,8 @@ assembly_info:
 
 configuration: Release
 
-before_build:
-  - ps: Set-AppveyorBuildVariable -Name opencover -Value $(Get-ChildItem -Filter OpenCover.Console.exe -Recurse | Resolve-Path -Relative)
-  - cmd: echo %opencover%
-
-before_test:
-  - cmd: echo %xunit20%
+test_script:
+  - ps: runtests.ps1
 
 build:
   project: SimpleConf.sln
