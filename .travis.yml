@@ -1,2 +1,6 @@
 language: csharp
 solution: SimpleConf.sln
+
+script:
+  - xbuild /p:Configuration=Release SimpleConf.sln
+  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./SimpleConf.Tests/bin/Release/SimpleConf.Tests.dll
