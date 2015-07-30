@@ -1,6 +1,6 @@
 # SimpleConf
 ### Configuration made simple!
-[![Build status](https://ci.appveyor.com/api/projects/status/kyov4ki5guvt0qid?svg=true)](https://ci.appveyor.com/project/CristianPrieto/configurator) [![Nuget package](https://img.shields.io/nuget/v/SimpleConf.svg)](http://https://www.nuget.org/packages/SimpleConf/) [![Coverage Status](https://coveralls.io/repos/cprieto/SimpleConf/badge.svg?branch=master&service=github)](https://coveralls.io/github/cprieto/SimpleConf?branch=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/kyov4ki5guvt0qid?svg=true)](https://ci.appveyor.com/project/CristianPrieto/configurator) [![NuGet version](https://badge.fury.io/nu/SimpleConf.svg)](http://badge.fury.io/nu/SimpleConf) [![Coverage Status](https://coveralls.io/repos/cprieto/SimpleConf/badge.svg?branch=master&service=github)](https://coveralls.io/github/cprieto/SimpleConf?branch=master)
 
 How many times do you have to write a line of code like this?
 ```csharp
