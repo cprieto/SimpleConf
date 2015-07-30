@@ -1,6 +1,12 @@
 language: csharp
 solution: SimpleConf.sln
 
+before_install:
+  - sudo bash -c "echo deb http://badgerports.org precise main >> /etc/apt/sources.list"
+  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E1FAD0C
+  - sudo apt-get update
+  - sudo apt-get install mono-devel
+
 script:
   - xbuild /p:Configuration=Release SimpleConf.sln
   - mono ./packages/xunit.runner.console*/tools/xunit.console.x86.exe ./SimpleConf.Tests/bin/Release/SimpleConf.Tests.dll
