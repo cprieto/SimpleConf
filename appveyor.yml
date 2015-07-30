@@ -31,6 +31,9 @@ configuration: Release
 test_script:
   - ps: runtests.ps1
 
+before_build:
+  - ps: nuget restore
+
 build:
   project: SimpleConf.sln
   verbosity: minimal
