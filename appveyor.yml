@@ -39,6 +39,7 @@ before_build:
 build:
   project: SimpleConf.sln
   verbosity: minimal
+  publish_nuget: true
 
 artifacts:
   - path: 'SimpleConf\**\*.nupkg'
