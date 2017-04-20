@@ -39,3 +39,7 @@ before_build:
 build:
   project: SimpleConf.sln
   verbosity: minimal
+
+artifacts:
+  - path: 'SimpleConf\**\*.nupkg'
+    type: NuGetPackage
