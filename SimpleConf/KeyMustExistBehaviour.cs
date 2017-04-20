@@ -16,7 +16,7 @@ namespace SimpleConf
                 .SingleOrDefault();
 
             if (storedValue == null && IsRequired(ifExists) && defaultValue == null)
-                throw new KeyNotFoundException("key '" + key + "' not found");
+                throw new KeyNotFoundException($"key '{key}' not found");
 
             if (storedValue == null && defaultValue != null)
                 return defaultValue.Value;

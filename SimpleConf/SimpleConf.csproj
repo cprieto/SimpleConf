@@ -47,6 +47,7 @@
     <Compile Include="AppSettingsConfigurationSource.cs" />
     <Compile Include="CascadingMultipleDictionaryAdapter.cs" />
     <Compile Include="ConfiguratorBuilder.cs" />
+    <Compile Include="ConnectionStringsConfigurationSource.cs" />
     <Compile Include="EnvironmentConfigurationSource.cs" />
     <Compile Include="IConfigurationSource.cs" />
     <Compile Include="KeyMustExistBehaviour.cs" />

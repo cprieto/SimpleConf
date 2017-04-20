@@ -21,10 +21,7 @@ namespace SimpleConf
             _sources = new List<IDictionary<string, string>>(sources);
         }
 
-        public IEnumerable<IDictionary<string, string>> Sources
-        {
-            get { return _sources; }
-        }
+        public IEnumerable<IDictionary<string, string>> Sources => _sources;
 
         public void AddSource(IDictionary<string, string> source)
         {
@@ -44,10 +41,7 @@ namespace SimpleConf
             set { throw new NotSupportedException(); }
         }
 
-        public override bool IsReadOnly
-        {
-            get { return true; }
-        }
+        public override bool IsReadOnly => true;
 
         public override bool Contains(object key)
         {

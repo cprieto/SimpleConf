@@ -7,7 +7,6 @@ namespace SimpleConf
 {
     public sealed class ConfiguratorBuilder<T> where T : class
     {
-        //private readonly IList<IDictionary<string, string>> _sources = new List<IDictionary<string, string>>();
         private readonly IList<IConfigurationSource> _sources = new List<IConfigurationSource>(); 
 
         public ConfiguratorBuilder<T> FromEnvironment()
@@ -45,7 +44,7 @@ namespace SimpleConf
             return this;
         }
 
-        private string _prefix = String.Empty;
+        private string _prefix = string.Empty;
         private string _separator = ":";
 
         public T Build()
@@ -71,7 +70,7 @@ namespace SimpleConf
         private void AddKeyPrefix(PropertyDescriptor descriptor)
         {
             var prefix = string.IsNullOrWhiteSpace(_prefix) ? string.Empty 
-                : string.Format("{0}{1}", _prefix, _separator);
+                : $"{_prefix}{_separator}";
 
             var behavior = new KeyPrefixAttribute(prefix);
             
