@@ -1,6 +1,6 @@
 # We are using now semantic versioning
 environment:
-  core_version: 1.0.5
+  core_version: 1.0.6
   COVERALL_TOKEN:
     secure: fCYgOFdulN+Oy2egpNLEMPLM/CZceyDfIRXkx/IkphthEUHHeBhaK49jFw3Y1AZZ
 

@@ -27,6 +27,14 @@ namespace SimpleConf
             return this;
         }
 
+        public ConfiguratorBuilder<T> FromConnectionStrings<TSource>() where TSource : IConfigurationSource, new()
+        {
+            var source = Activator.CreateInstance<TSource>();
+            _sources.Add(source);
+
+            return this;
+        }
+
         public ConfiguratorBuilder<T> WithKeyPrefix(string prefix, string separator = ":")
         {
             _prefix = prefix;
