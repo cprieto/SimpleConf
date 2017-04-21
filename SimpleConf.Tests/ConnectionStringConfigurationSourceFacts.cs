@@ -30,5 +30,17 @@ namespace SimpleConf.Tests
 
             Assert.Throws<KeyNotFoundException>(() => values[notFound]);
         }
+
+        [Fact]
+        public void ItReturnsPrefixedKeysIfRequested()
+        {
+            var provider = new ConnectionStringsConfigurationSource("foo", "-");
+            var expected = ConfigurationManager.ConnectionStrings[Name].ConnectionString;
+
+            var values = provider.GetValues();
+
+            Assert.NotNull(values[$"foo-{Name}"]);
+            Assert.Equal(expected, values[$"foo-{Name}"]);
+        }
     }
 }

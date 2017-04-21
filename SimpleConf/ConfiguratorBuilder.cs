@@ -27,12 +27,14 @@ namespace SimpleConf
             return this;
         }
 
-        public ConfiguratorBuilder<T> FromConnectionStrings<TSource>() where TSource : IConfigurationSource, new()
+        public ConfiguratorBuilder<T> FromConnectionStrings()
         {
-            var source = Activator.CreateInstance<TSource>();
-            _sources.Add(source);
+            return FromSource<ConnectionStringsConfigurationSource>();
+        }
 
-            return this;
+        public ConfiguratorBuilder<T> FromConnectionStrings(string prefix, string separator)
+        {
+            return FromSource(new ConnectionStringsConfigurationSource(prefix, separator));
         }
 
         public ConfiguratorBuilder<T> WithKeyPrefix(string prefix, string separator = ":")
